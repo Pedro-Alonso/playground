@@ -1,3 +1,15 @@
 export const EN_US_TRANSLATIONS = {
-  welcome: "Welcome to React playground!",
+  pages: {
+    home: {
+      welcome: "Welcome to the React playground!",
+    },
+  },
+  components: {
+    modal: {
+      buttons: {
+        ok: "Ok",
+        close: "Close",
+      },
+    },
+  },
 };

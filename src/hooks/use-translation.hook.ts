@@ -28,6 +28,7 @@ const translate = (key: string, targetLanguage: TranslationObject) => {
 };
 
 export const useTranslation = (
+  initialKey: string,
   language: string = "pt-BR"
 ): ((key: string) => string) => {
   const targetLanguageTranslation: TranslationObject = translations[language];
@@ -36,5 +37,6 @@ export const useTranslation = (
     throw new Error(`Language '${language}' not supported.`);
   }
 
-  return (key: string) => translate(key, targetLanguageTranslation);
+  return (key: string) =>
+    translate(`${initialKey}.${key}`, targetLanguageTranslation);
 };
