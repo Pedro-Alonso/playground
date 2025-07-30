@@ -1,33 +1,41 @@
 "use client";
 
-import { Button, ButtonSizes, ButtonTypes } from "@/components/button/button";
-import { Modal } from "@/components/modal/modal";
+import { Link, LinkSizes, LinkTypes } from "@/components/link/link";
 import { Screen } from "@/components/screen/screen";
 import { useTranslation } from "@/hooks/use-translation.hook";
-import { useState } from "react";
+
+type Page = {
+  label: string;
+  path: string;
+};
 
 export default function Home() {
-  const [isOpen, setIsOpen] = useState(false);
-
   const translate = useTranslation("pages.home");
 
+  const pages: Page[] = [
+    {
+      label: translate("menu.options.modal"),
+      path: "modal",
+    },
+  ];
+
+  const renderPages = () =>
+    pages.map((page) => (
+      <Link
+        type={LinkTypes.primary}
+        size={LinkSizes.medium}
+        text={page.label}
+        to={page.path}
+        key={page.path}
+      />
+    ));
   return (
     <Screen className="gap-8">
-      <h1>{translate("welcome")}</h1>
-      <Button
-        type={ButtonTypes.secondary}
-        size={ButtonSizes.medium}
-        onClick={() => setIsOpen(true)}
-        text="Abrir modal"
-      />
-
-      <Modal
-        isOpen={isOpen}
-        title="Isso é um modal"
-        closeOnClickOutside
-        onAction={() => setIsOpen(false)}
-        onClose={() => setIsOpen(false)}
-      />
+      <h1 className="text-3xl font-bold">{translate("welcome")}</h1>
+      <div className="flex flex-col justify-center items-center gap-4">
+        <h2 className="text-xl">{translate("menu.title")}</h2>
+        <div className="flex flex-col gap-10">{renderPages()}</div>
+      </div>
     </Screen>
   );
 }
