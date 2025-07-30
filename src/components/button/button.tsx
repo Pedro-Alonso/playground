@@ -35,7 +35,7 @@ export const Button = ({
         "bg-transparent text-blue-400 hover:text-blue-100",
     };
     const sizeStyles: Record<ButtonSizes, string> = {
-      [ButtonSizes.small]: "px-4 py-1 text-sm w-20",
+      [ButtonSizes.small]: "px-4 py-1 text-sm w-30",
       [ButtonSizes.medium]: "px-6  py-2 text-lg w-40",
       [ButtonSizes.large]: "px-8 py-3 text-2xl w-40",
     };
