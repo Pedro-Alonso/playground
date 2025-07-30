@@ -17,7 +17,12 @@ export const Modal = ({
   onAction,
   onClose,
 }: ModalProps) => {
-  const target = document.getElementById("modal");
+  const [target, setTarget] = useState<HTMLElement | null>(null);
+
+  useEffect(() => {
+    setTarget(document.getElementById("modal"));
+  }, []);
+
   const translate = useTranslation("components.modal");
   return (
     isOpen &&
