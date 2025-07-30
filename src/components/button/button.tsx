@@ -30,7 +30,7 @@ export const Button = ({
     const typeStyles: Record<ButtonTypes, string> = {
       [ButtonTypes.primary]: "bg-blue-400 hover:bg-blue-700",
       [ButtonTypes.secondary]:
-        "bg-transparent border-2 border-blue-800 hover:bg-blue-200/[.20]",
+        "bg-transparent border-2 border-blue-800 hover:bg-blue-200/[.20] text-black dark:text-blue-100",
       [ButtonTypes.tertiary]:
         "bg-transparent text-blue-400 hover:text-blue-100",
     };
