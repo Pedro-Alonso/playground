@@ -8,7 +8,7 @@ interface ScreenProps {
 export const Screen = ({ children, className = "" }: ScreenProps) => {
   return (
     <div
-      className={`flex flex-col justify-center items-center h-full w-full p-2 ${className}`}
+      className={`flex flex-col justify-center items-center h-full w-full p-8 ${className}`}
     >
       {children}
     </div>
